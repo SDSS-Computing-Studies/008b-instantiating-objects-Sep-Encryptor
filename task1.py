@@ -74,58 +74,52 @@ Shih-tzu is owned by Christy
 (10 points) 
 """
 pets = []
-names = []
 
 class pet:
-
-    global pets
-    global names
+    animal = None
+    breed = None
+    name = None
+    owner = None
+    birthdate = None
 
     def __init__(self):
-        self.animal = input("Type of animal:\n").strip()
-        self.breed = input("Breed\n").strip()
-        n = input("Name:\n").strip()
-        self.name = n
-        names.append(n)
-        self.owner = input("Owner:\n").strip()
-        self.birth = input("Birthdate\n").strip()
+        print("\n")
+        self.animal = input("Enter the animal: ")
+        self.breed = input("Enter the breed: ")
+        self.name = input("Enter the name: ")
+        self.owner = input("Enter the owner: ")
+        self.birthdate = input("Enter the birthdate: ")
 
-    def __del__(self):
-        pass
-
-    def display(self):
-        #print( self.name + " " + self.animal + "\n" + self.breed + " is owned by " + self.owner)
-        print(self.name + "\n" + self.animal + "\n" + self.breed + "\n" + self.owner)
+    def displayPet(self):
+        output = str(self.name) + " " + str(self.animal) + " " + str(self.breed) + " " + str(self.owner)
+        outputLength = len(output)
+        print( outputLength * "=")
+        print( output)
+        print( outputLength * "=")
 
 def main():
-    global pets
-    global names
     while True:
-        x = input("1. Enter a new pet\n2. Retrieve a pet\n3. Exit\n").strip()
-        if x == "1":
-            pets.append(pet())
-            #os.system("cls")
-        elif x == "2":
-            if len(pets) == 0:
-                #os.system("cls")
-                print("You have no pets!")
-            else:
-                #os.system("cls")
-                #print(names)
-                p = input("Enter pet's name\n").strip()
-                #os.system("cls")
-                if p in names:
-                    pets[names.index(p)].display()
-                    #break
-                else:
-                    #os.system("cls")
-                    print("You don't have a pet named " + p + "!")
-        elif x == "3":
-            #os.system("cls")
-            #print("Yeah get outta here loser")
-            break
-        else:
-            #os.system("cls")
-            pass
+        print("Would you like to?")
+        print("1.Enter a new pet")
+        print("2.Retrieve a pet")
+        print("3.Exit")
+
+        command = int(input("Choose a number[1-3]: "))
+
+        if command == 1:
+            a = pet()
+            pets.append(a)
+
+        elif command == 2:
+            find = input("Enter the name of pet you want to find:")
+            length = len(pets)
+            for i in range(0,length):
+                name = pets[i].name
+                if find == name:
+                    pets[i].displayPet()
+
+        elif command == 3:
+            print("Exitting program")
+            break       
 
 main()
