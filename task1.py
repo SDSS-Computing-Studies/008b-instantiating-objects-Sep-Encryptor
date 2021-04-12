@@ -73,53 +73,48 @@ Buster dog
 Shih-tzu is owned by Christy
 (10 points) 
 """
-pets = []
 
-class pet:
-    animal = None
-    breed = None
-    name = None
-    owner = None
-    birthdate = None
+class database:
+    animal=""
+    breed = ""
+    name = ""           
+    owner = ""     
+    birthdate = ""        
+
+
 
     def __init__(self):
-        print("\n")
-        self.animal = input("Enter the animal: ")
-        self.breed = input("Enter the breed: ")
-        self.name = input("Enter the name: ")
-        self.owner = input("Enter the owner: ")
-        self.birthdate = input("Enter the birthdate: ")
+        self.animal = input("Type of animal?:")
+        self.breed = input("Breed?:")
+        self.name = input("Name?:")
+        self.owner = input("Owner?:")
+        self.birthdate = input("Birthdate?:")
+    
+    def display(self):
+        print(""+self.name+","+" "+self.animal)
+        print(""+self.breed+" "+"is owned by"+" "+self.owner)  
+        
 
-    def displayPet(self):
-        output = str(self.name) + " " + str(self.animal) + " " + str(self.breed) + " " + str(self.owner)
-        outputLength = len(output)
-        print( outputLength * "=")
-        print( output)
-        print( outputLength * "=")
+animals=[]
+while True:
+    print("1."+ " "+"Enter a new pet")
+    print("2."+ " "+"Retrieve a pet")
+    print("3."+ " "+"Exit")
+    choice=int(input(""))
+            
+    if choice == 1:
+        animals.append( database() )
+        
+   
+    elif choice == 2:
+        pet=""
+        pet=input("Enter pet's name:")
+        index = 0
+        for i in animals:
+            if pet==i.name:
+                animals[index].display()
+            index = index + 1
 
-def main():
-    while True:
-        print("Would you like to?")
-        print("1.Enter a new pet")
-        print("2.Retrieve a pet")
-        print("3.Exit")
 
-        command = int(input("Choose a number[1-3]: "))
-
-        if command == 1:
-            a = pet()
-            pets.append(a)
-
-        elif command == 2:
-            find = input("Enter the name of pet you want to find:")
-            length = len(pets)
-            for i in range(0,length):
-                name = pets[i].name
-                if find == name:
-                    pets[i].displayPet()
-
-        elif command == 3:
-            print("Exitting program")
-            break       
-
-main()
+    elif choice == 3:
+        break 
