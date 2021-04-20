@@ -71,50 +71,51 @@ Which Pet? Buster
 
 Buster dog
 Shih-tzu is owned by Christy
-(10 points) 
+(10 point)
 """
 
-class database:
-    animal=""
-    breed = ""
-    name = ""           
-    owner = ""     
-    birthdate = ""        
+class pet:
+    animal = None
+    name = None
+    breed = None
+    owner = None
+    bday = None
 
 
-
-    def __init__(self):
-        self.animal = input("Type of animal?:")
-        self.breed = input("Breed?:")
-        self.name = input("Name?:")
-        self.owner = input("Owner?:")
-        self.birthdate = input("Birthdate?:")
+def __init__(self):
+    self.animal = input("Enter the animal")
+    self.breed = input("Enter the breed of your pet")
+    self.name = input("Enter the name of your pet")
+    self.owner = input("Enter the owners name")
+    self.bday = input("Enter your pet's bday, expressed as year-month-date")
     
-    def display(self):
-        print(""+self.name+","+" "+self.animal)
-        print(""+self.breed+" "+"is owned by"+" "+self.owner)  
-        
+def displayPet(self):
+    output1 = self.name+" "+self.animal
+    output2 = self.breed+" is owned by "+self.owner
+    print(output1)
+    print(output2)
 
-animals=[]
-while True:
-    print("1."+ " "+"Enter a new pet")
-    print("2."+ " "+"Retrieve a pet")
-    print("3."+ " "+"Exit")
-    choice=int(input(""))
+
+pets=[]
+x=1
+while x != 2:
+    print("1=Enter a pet")
+    print("2=Retrieve Pet")
+    print("3=Exit")
+    z = int(input(""))
+    if z == 1:
+        pets.append(pet())
+        x=1
+    elif z == 2:
+        y = input("Which pet")
+        for i in pets:
+            if i.name == y:
+                print(i.displayPet())
             
-    if choice == 1:
-        animals.append( database() )
-        
-   
-    elif choice == 2:
-        pet=""
-        pet=input("Enter pet's name:")
-        index = 0
-        for i in animals:
-            if pet==i.name:
-                animals[index].display()
-            index = index + 1
+        x = 1
+    elif z == 3:
+        print("Thank you for visiting")
+        x = 2
 
 
-    elif choice == 3:
-        break 
+
