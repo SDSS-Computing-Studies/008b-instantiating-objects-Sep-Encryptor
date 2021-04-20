@@ -71,7 +71,7 @@ Which Pet? Buster
 
 Buster dog
 Shih-tzu is owned by Christy
-(10 point)
+(10 points)
 """
 
 class pet:
